@@ -21,6 +21,8 @@ from anthropic import Anthropic
 import uvicorn
 from diagnosis_matcher import create_vector_diagnosis_matcher
 
+app = FastAPI()
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
