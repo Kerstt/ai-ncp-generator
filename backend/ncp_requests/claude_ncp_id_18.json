@@ -1,0 +1,97 @@
+{
+  "request_id": "4610a020-2192-40a5-8a31-549366ecbaec",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T16:25:29.744782+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 3,
+    "objective_count": 8,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T16:25:35.100355+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 663,
+        "output_tokens": 134,
+        "total_tokens": 797
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 3,
+        "objective_count": 8
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T16:25:49.162432+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 1057,
+        "output_tokens": 313,
+        "total_tokens": 1370
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T16:27:02.135801+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2576,
+        "output_tokens": 4415,
+        "total_tokens": 6991
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "ineffective airway clearance",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 4296,
+    "output_tokens": 4862,
+    "total_billable": 9158
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "ineffective airway clearance",
+    "diagnosis_reasoning": "This diagnosis is the highest priority based on ABC (Airway, Breathing, Circulation) framework and directly matches the assessment data. The patient presents with clear evidence of airway compromise: excessive secretions ('marami siyang plema sa airway'), ineffective cough unable to clear secretions, audible crackling sounds, and adventitious breath sounds on auscultation. The mother's statement that secretions are 'nasa loob talaga' (deep inside) confirms retained secretions obstructing the airway. While 'ineffective breathing pattern' might also seem applicable due to tachypnea (RR 48-66) and retractions, the primary problem is the AIRWAY obstruction from retained secretions causing the compensatory breathing pattern. According to prioritization rules, airway takes precedence over breathing when both are present. The retractions, rapid breathing, and noisy respirations are compensatory responses to the obstructed airway. 'Impaired gas exchange' would require evidence of oxygen/CO2 exchange problems (e.g., cyanosis, abnormal blood gases), which are not documented. This is an actual, acute, life-threatening physiological problem requiring immediate intervention to clear secretions and maintain patent airway, making it the clear priority over all other candidate diagnoses.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T16:27:02.155036+00:00",
+  "duration_seconds": 92.41
+}

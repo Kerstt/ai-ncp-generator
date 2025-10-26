@@ -1,0 +1,97 @@
+{
+  "request_id": "a0407075-5505-40b8-8acd-6a1d982f2905",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-21T02:58:57.412969+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 7,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-21T02:59:02.132135+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 553,
+        "output_tokens": 98,
+        "total_tokens": 651
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 7
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-21T02:59:18.782013+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 934,
+        "output_tokens": 324,
+        "total_tokens": 1258
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-21T03:00:28.519643+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2472,
+        "output_tokens": 4411,
+        "total_tokens": 6883
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3959,
+    "output_tokens": 4833,
+    "total_billable": 8792
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "This diagnosis is selected based on the following clinical evidence and prioritization: 1) Assessment data clearly demonstrates acute pain: patient reports headache for 3 days with chest tightness ('masakit ang ulo ko for 3 days at may kasamang paninikip ng dibdib'), pain scale 7/10, and facial grimacing - all objective indicators of acute pain. 2) Using Maslow's hierarchy, acute pain is a physiological need that takes priority over psychosocial diagnoses (anxiety, fear, stress overload). 3) Applying the actual vs. risk diagnosis rule: acute pain is an ACTUAL problem with clear defining characteristics, whereas the cardiac-related diagnoses are 'risk for' diagnoses. While the chest tightness, elevated BP (140/90), tachycardia (pulse 100), tachypnea (RR 22), and cold/clammy skin suggest potential cardiovascular concerns, there is no explicit evidence of current ABC compromise or cardiac dysfunction - only risk factors and symptoms that could be pain-related sympathetic responses. 4) The acute vs. chronic rule supports this selection as the 3-day duration indicates an acute condition requiring immediate intervention. The pain is severe (7/10) and accompanied by multiple physiological responses, making it the priority actual diagnosis requiring immediate nursing intervention before addressing potential cardiovascular risks.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-21T03:00:28.529575+00:00",
+  "duration_seconds": 91.12
+}

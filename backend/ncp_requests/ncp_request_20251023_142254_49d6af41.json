@@ -1,0 +1,104 @@
+{
+  "request_id": "49d6af41-ac55-4ebd-8b54-892044dc27f7",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-23T06:21:02.644927+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "comprehensive_manual",
+    "filled_fields_count": 26,
+    "total_possible_fields": 29,
+    "sections_with_data": [
+      "demographics",
+      "chief_complaint",
+      "history",
+      "vital_signs",
+      "physical_exam",
+      "lab_results",
+      "subjective_data",
+      "objective_data"
+    ],
+    "sections_count": 8
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-23T06:21:13.695658+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing (Comprehensive)",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 1053,
+        "output_tokens": 356,
+        "total_tokens": 1409
+      },
+      "context": {
+        "has_comprehensive_data": true,
+        "data_fields_count": 26
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-23T06:21:29.609963+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 1404,
+        "output_tokens": 331,
+        "total_tokens": 1735
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-23T06:22:54.626774+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2940,
+        "output_tokens": 4883,
+        "total_tokens": 7823
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 5397,
+    "output_tokens": 5570,
+    "total_billable": 10967
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "This diagnosis is the clear priority based on the patient's assessment data and nursing prioritization framework. The patient has a current, actual physiological problem with pain rated 6/10, described as 'aching and throbbing, worse with movement,' which is directly observable through grimacing and guarding behaviors. According to Maslow's hierarchy, physiological needs (pain) take priority over safety concerns (risk diagnoses). While several risk diagnoses are present in the candidate list (risk for delayed surgical recovery, risk for disuse syndrome), the prioritization rule states that actual problems override risk problems at the same Maslow level. The patient does not meet criteria for 'delayed surgical recovery' as he is only POD 1 with expected postoperative findings (hypoactive bowel sounds, mild temperature elevation to 37.8°C, pain with movement are all normal at 18 hours post-op). 'Impaired tissue integrity' and 'impaired skin integrity' are not supported as the incisions are described as 'clean, dry, and intact' with only 'minimal surrounding erythema.' The ABC framework does not apply as there is no airway, breathing, or circulation compromise (vitals stable, SpO2 98%, alert and oriented). Acute pain is the primary actual physiological problem requiring immediate nursing intervention, supported by subjective report, pain scale rating, and objective guarding/grimacing behaviors.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-23T06:22:54.629860+00:00",
+  "duration_seconds": 111.98
+}

@@ -1,0 +1,90 @@
+{
+  "request_id": "d32917d0-2d93-49f9-af9d-72ae4e6e70cd",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T01:44:19.388956+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 3,
+    "objective_count": 2,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T01:45:24.534864+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 493,
+        "output_tokens": 2829,
+        "total_tokens": 3322
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 3,
+        "objective_count": 2
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T01:45:45.273215+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T01:47:45.748052+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2097,
+        "output_tokens": 4930,
+        "total_tokens": 7027
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2590,
+    "output_tokens": 7759,
+    "total_billable": 10349
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "1) The patient reports sudden, sharp, stabbing left arm pain at 8/10 following traumatic impact, with objective signs of pain (facial grimacing, guarding, limited ROM), which aligns with an acute onset pain state. 2) By prioritization: no evidence of ABC compromise; within Maslow, pain is a primary physiological need and an actual problem, thus it takes precedence over risk diagnoses (e.g., risk for peripheral neurovascular dysfunction, risk for disuse syndrome, risk for physical trauma) and over psychosocial options (post-trauma syndrome). Acute pain also supersedes chronic pain/chronic pain syndrome, which are not supported here. 3) Supporting evidence includes pain 8/10, sharp/stabbing quality, recent trauma (hit by motorcycle), and pain behaviors (grimacing, holding arm close, limited ROM).",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T01:47:45.761253+00:00",
+  "duration_seconds": 206.37
+}

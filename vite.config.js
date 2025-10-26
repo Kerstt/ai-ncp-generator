@@ -6,6 +6,7 @@ import { defineConfig } from 'vite'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+  base: './', // 👈 ensures assets use relative paths (important for shared hosting)
   plugins: [vue()],
   resolve: {
     alias: {
@@ -17,11 +18,8 @@ export default defineConfig({
     include: ['vue'],
   },
   build: {
-    // Generate sourcemaps for production debugging (optional, remove for smaller builds)
     sourcemap: false,
-    // Chunk size warnings
     chunkSizeWarningLimit: 1000,
-    // Optimize bundle splitting
     rollupOptions: {
       output: {
         manualChunks: {

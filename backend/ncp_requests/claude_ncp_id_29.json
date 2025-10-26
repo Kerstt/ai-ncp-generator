@@ -1,0 +1,97 @@
+{
+  "request_id": "dcbd34e1-65f7-4890-8d4b-1785c31417b0",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T17:10:01.308670+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 8,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T17:10:05.787168+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 574,
+        "output_tokens": 88,
+        "total_tokens": 662
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 8
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:10:18.521765+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 972,
+        "output_tokens": 325,
+        "total_tokens": 1297
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:11:18.277394+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2470,
+        "output_tokens": 4006,
+        "total_tokens": 6476
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "ineffective breathing pattern",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 4016,
+    "output_tokens": 4419,
+    "total_billable": 8435
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "ineffective breathing pattern",
+    "diagnosis_reasoning": "This diagnosis is selected based on the following clinical evidence and prioritization: 1) Assessment data clearly demonstrates compromised breathing: RR of 50 bpm (significantly elevated, indicating tachypnea), SpO2 of 92% on room air (below normal range of 95-100%), rapid breathing observed, and maternal report of difficulty breathing related to asthma. 2) This is an ABC-level (Breathing) actual problem requiring immediate intervention. While multiple respiratory diagnoses were candidates, 'ineffective breathing pattern' best captures the altered rate (tachypnea at 50 bpm) and depth of breathing with resulting hypoxemia. 'Ineffective airway clearance' would require evidence of secretions, cough, or adventitious breath sounds not documented here. 'Impaired gas exchange' is a deeper alveolar-capillary problem, whereas this patient's primary issue is the breathing pattern itself (rate and work of breathing). 'Impaired spontaneous ventilation' would indicate inability to maintain breathing without mechanical support, which is not evident. 3) This actual physiological breathing problem takes absolute priority over all risk diagnoses and non-ABC problems per the prioritization framework. The combination of tachypnea, hypoxemia, and asthma history in a pediatric patient constitutes an acute breathing emergency requiring immediate nursing intervention.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T17:11:18.284427+00:00",
+  "duration_seconds": 76.98
+}

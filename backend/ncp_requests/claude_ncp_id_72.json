@@ -1,0 +1,97 @@
+{
+  "request_id": "df4437de-5ac2-4db8-b758-818e7e0760e9",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T18:12:47.456814+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 4,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T18:12:52.624355+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 532,
+        "output_tokens": 103,
+        "total_tokens": 635
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 4
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T18:13:03.786720+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 933,
+        "output_tokens": 267,
+        "total_tokens": 1200
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T18:14:13.714254+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2404,
+        "output_tokens": 4334,
+        "total_tokens": 6738
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "constipation",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3869,
+    "output_tokens": 4704,
+    "total_billable": 8573
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "constipation",
+    "diagnosis_reasoning": "This diagnosis is selected based on clear objective evidence: no bowel movement for several days and hypoactive/absent bowel sounds, which are defining characteristics of constipation. According to Maslow's hierarchy, this is a physiological need (elimination) that takes priority over mobility issues and psychosocial concerns. While the patient has impaired mobility and ventilation support, there is no evidence of ABC compromise (the intubation appears to be providing adequate ventilation support without dysfunction). Following the prioritization framework: (1) No ABC emergency is evident, (2) Constipation is an actual physiological problem versus risk diagnoses, (3) 'Constipation' is prioritized over 'chronic functional constipation' because the acute presentation (several days without bowel movement in an immobile, NPO patient) suggests an acute problem rather than a chronic pattern. The immobility and NPO status are contributing factors, but the actual elimination problem (constipation) takes precedence over the mobility diagnoses as it represents a current physiological dysfunction requiring immediate intervention to prevent complications such as impaction or bowel obstruction.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T18:14:13.731693+00:00",
+  "duration_seconds": 86.27
+}

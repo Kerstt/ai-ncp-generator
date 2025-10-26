@@ -1,0 +1,90 @@
+{
+  "request_id": "9eb12fb5-7598-4d4d-a0ea-04304436a128",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T02:03:09.706023+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 3,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T02:03:58.372667+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 493,
+        "output_tokens": 3004,
+        "total_tokens": 3497
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 3
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T02:04:16.699669+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T02:06:21.323829+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2042,
+        "output_tokens": 5421,
+        "total_tokens": 7463
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "impaired skin integrity",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2535,
+    "output_tokens": 8425,
+    "total_billable": 10960
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "impaired skin integrity",
+    "diagnosis_reasoning": "1) The patient has a surgical incision (left herniorrhaphy) with documented disruption of the epidermis and destruction of the dermis, which directly matches impaired skin integrity (altered epidermis and/or dermis). The reported groin pain is consistent with an acute wound. 2) ABC issues are not present. By Maslow, this is a physiological need and an actual problem, which takes priority over risk diagnoses (e.g., risk for surgical site infection) and psychosocial options. Between actual options, impaired skin integrity is more specific to the documented epidermal/dermal damage than impaired tissue integrity, which is broader and typically used when deeper tissues are involved. 3) Specific evidence: left herniorrhaphy incision; disruption of skin surface (epidermis); destruction of skin layers (dermis); patient reports pain at the site.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T02:06:21.331415+00:00",
+  "duration_seconds": 191.63
+}

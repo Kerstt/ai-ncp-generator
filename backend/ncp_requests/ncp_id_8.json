@@ -1,0 +1,90 @@
+{
+  "request_id": "d5ee51ed-b4d0-4b5a-bc4b-f3fba0f27cf6",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-11T14:38:34.890343+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 1,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-11T14:39:40.483871+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 495,
+        "output_tokens": 4152,
+        "total_tokens": 4647
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 1
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T14:39:57.375188+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T14:42:09.978511+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2099,
+        "output_tokens": 5942,
+        "total_tokens": 8041
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2594,
+    "output_tokens": 10094,
+    "total_billable": 12688
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "1) Match: The patient reports pain rated 7/10 in the arm, perineal area, and lower back with observable facial grimacing, guarding, and difficulty finding a comfortable position—classic defining characteristics of acute pain. 2) Priority: No ABC compromise is present. Pain is a physiological need and an actual problem, which takes precedence over risk diagnoses and psychosocial issues. It outranks 'impaired comfort' because pain is the specific, higher-priority physiological diagnosis; it also outranks 'chronic pain' or 'chronic pain syndrome' as the presentation is acute, and 'labor pain' is not applicable. 3) Evidence: Verbal report of 7/10 pain; guarding on movement; facial grimacing; difficulty with positioning, and recent triggers (cot bed discomfort, discontinued IV site).",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-11T14:42:09.990605+00:00",
+  "duration_seconds": 215.1
+}

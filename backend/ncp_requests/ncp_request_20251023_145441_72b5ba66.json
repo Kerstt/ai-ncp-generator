@@ -1,0 +1,105 @@
+{
+  "request_id": "72b5ba66-5c95-488c-a241-da96c881da8b",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-23T06:52:47.817542+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "comprehensive_manual",
+    "filled_fields_count": 27,
+    "total_possible_fields": 29,
+    "sections_with_data": [
+      "demographics",
+      "chief_complaint",
+      "history",
+      "family_history",
+      "vital_signs",
+      "physical_exam",
+      "lab_results",
+      "subjective_data",
+      "objective_data"
+    ],
+    "sections_count": 9
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-23T06:52:55.767813+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing (Comprehensive)",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 997,
+        "output_tokens": 188,
+        "total_tokens": 1185
+      },
+      "context": {
+        "has_comprehensive_data": true,
+        "data_fields_count": 27
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-23T06:53:09.382759+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 1353,
+        "output_tokens": 277,
+        "total_tokens": 1630
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-23T06:54:41.390588+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2814,
+        "output_tokens": 5428,
+        "total_tokens": 8242
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "impaired gas exchange",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 5164,
+    "output_tokens": 5893,
+    "total_billable": 11057
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "impaired gas exchange",
+    "diagnosis_reasoning": "This diagnosis is selected based on ABC prioritization (Breathing compromise). The assessment data clearly demonstrates current respiratory dysfunction: SpO2 92% (below normal 95-100%), respiratory rate 28/min (elevated for age 7, normal 18-25), bilateral crackles on auscultation, increased work of breathing with mild retractions and nasal flaring, and chest X-ray showing bilateral infiltrates consistent with pneumonia. These findings indicate actual impairment in oxygenation at the alveolar-capillary membrane level. While 'ineffective airway clearance' addresses secretion management, 'impaired gas exchange' takes priority because it reflects the underlying pathophysiology of pneumonia affecting oxygen-carbon dioxide exchange at the cellular level, which is more immediately life-threatening. The elevated WBC (15,200) and infiltrates confirm an infectious process compromising gas exchange. Hyperthermia, though present (39.2°C), is a lower physiological priority than breathing/oxygenation per ABC framework. This is an actual problem with clear evidence of compromise, not merely a risk, making it the highest priority diagnosis.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-23T06:54:41.402726+00:00",
+  "duration_seconds": 113.59
+}

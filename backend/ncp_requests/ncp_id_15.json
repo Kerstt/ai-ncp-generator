@@ -1,0 +1,90 @@
+{
+  "request_id": "13c346f9-1cf9-46db-8742-8e354230235b",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-11T14:54:12.006439+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 2,
+    "objective_count": 5,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-11T14:54:47.946708+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 509,
+        "output_tokens": 2749,
+        "total_tokens": 3258
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 2,
+        "objective_count": 5
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T14:55:06.282308+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T14:57:34.447583+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2113,
+        "output_tokens": 7333,
+        "total_tokens": 9446
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2622,
+    "output_tokens": 10082,
+    "total_billable": 12704
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "1) Matches data: The patient reports severe pain at the suture site and burning with urination, rates pain 5/10, and shows facial grimacing when sitting—consistent with acute, recent-onset nociceptive pain. Mild tachycardia (PR 98) can accompany pain. 2) Priority: No evidence of airway, breathing, or circulation compromise, so per ABC we move to physiological needs; an actual pain problem takes precedence over comfort issues or risk diagnoses. Acute pain also outranks chronic pain options. 3) Supporting evidence: Verbal reports of intense suture pain and dysuria, pain score 5/10, facial grimace on movement; vitals otherwise stable, making pain the primary immediate physiological concern over alternatives like impaired tissue/skin integrity (not objectively documented), labor pain (not in labor), or pressure injury (no findings).",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-11T14:57:34.461548+00:00",
+  "duration_seconds": 202.46
+}

@@ -1,0 +1,97 @@
+{
+  "request_id": "900d8769-1371-4d79-bcd5-88576bdbf07f",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T16:13:50.556730+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 3,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T16:13:55.148701+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 509,
+        "output_tokens": 65,
+        "total_tokens": 574
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 3
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T16:14:06.965872+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 885,
+        "output_tokens": 275,
+        "total_tokens": 1160
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T16:15:00.329191+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2364,
+        "output_tokens": 3391,
+        "total_tokens": 5755
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "impaired skin integrity",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3758,
+    "output_tokens": 3731,
+    "total_billable": 7489
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "impaired skin integrity",
+    "diagnosis_reasoning": "This diagnosis is selected as the highest priority based on the following clinical rationale: 1) Assessment data match: The patient has an actual break in skin integrity evidenced by a scratch on the right palm with visible dirt, representing a current physiological problem. 2) Prioritization framework application: Using Maslow's hierarchy, this is a physiological need (skin integrity/tissue protection). Applying the 'actual over risk' rule, 'impaired skin integrity' (actual problem with evidence of broken skin) takes priority over 'risk for infection' (potential complication). The psychosocial diagnosis 'anxiety' ranks lower than physiological problems per Maslow's hierarchy. While 'impaired tissue integrity' could apply, 'impaired skin integrity' is more specific to the epidermal/dermal break described. 3) Supporting evidence: The visible scratch with dirt represents an actual disruption of the skin surface requiring immediate intervention (cleaning, assessment of wound depth, tetanus prophylaxis consideration). This is not ABC-threatening, but represents the most acute actual physiological problem present that requires priority nursing intervention to prevent progression to infection or deeper tissue involvement.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T16:15:00.348600+00:00",
+  "duration_seconds": 69.79
+}

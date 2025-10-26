@@ -1,0 +1,97 @@
+{
+  "request_id": "c2b93c29-664a-4b11-871f-b44eea604849",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T18:08:18.239828+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 6,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T18:08:22.534677+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 567,
+        "output_tokens": 69,
+        "total_tokens": 636
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 6
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T18:08:33.521363+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 953,
+        "output_tokens": 297,
+        "total_tokens": 1250
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T18:09:39.433364+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2444,
+        "output_tokens": 3975,
+        "total_tokens": 6419
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "adult pressure injury",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3964,
+    "output_tokens": 4341,
+    "total_billable": 8305
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "adult pressure injury",
+    "diagnosis_reasoning": "This diagnosis is selected because: 1) The assessment data explicitly documents a Stage 2 pressure ulcer on the middle buttocks with objective findings of erythema, warmth, tenderness, and serous drainage - this is an actual, existing pressure injury in an adult patient. 2) According to prioritization rules, an ACTUAL problem takes priority over RISK problems at the same Maslow level. While 'risk for adult pressure injury' and 'risk for disuse syndrome' are present in the candidate list, the patient already has a documented pressure injury, making the actual diagnosis the priority. 3) This is a physiological safety issue (skin breakdown, potential for infection) that ranks high on Maslow's hierarchy. The specific evidence includes: documented Stage 2 pressure ulcer, immobility as a contributing factor, signs of tissue damage (erythema, warmth, tenderness), and presence of exudate. The patient's intubated and immobile status confirms this is an adult patient requiring this specific diagnosis rather than child or neonatal variants. 'Impaired skin integrity' and 'impaired tissue integrity' are broader diagnoses, but 'adult pressure injury' is the most specific and accurate match for a documented pressure ulcer.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T18:09:39.443678+00:00",
+  "duration_seconds": 81.2
+}

@@ -1,0 +1,90 @@
+{
+  "request_id": "374be779-204d-4d54-98b1-cd53027954e9",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T02:15:13.250901+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 4,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T02:15:35.487389+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 460,
+        "output_tokens": 1510,
+        "total_tokens": 1970
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 4
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T02:15:46.981763+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T02:18:19.142481+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2064,
+        "output_tokens": 6977,
+        "total_tokens": 9041
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2524,
+    "output_tokens": 8487,
+    "total_billable": 11011
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "1) The patient’s verbal report of pain plus objective indicators—facial grimace, abdominal guarding, alterations in vital signs, and narrowed/self-focus—are classic defining characteristics of acute pain. 2) By prioritization: no evidence of airway, breathing, or circulation compromise; thus physiologic needs prevail. Among physiologic options, this is an actual problem and acute, which takes priority over chronic pain/chronic pain syndrome and over the broader, less specific impaired comfort. Labor pain is not supported by data. Psychosocial diagnoses (fear, defensive coping, ineffective denial, disturbed body image, ineffective protection) are lower priority and not clearly evidenced. 3) Specific evidence: patient reports pain; behavioral cues (grimacing, guarding); physiologic response (vital sign changes); cognitive-behavioral focus (narrowed focus) all support acute pain.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T02:18:19.148500+00:00",
+  "duration_seconds": 185.9
+}

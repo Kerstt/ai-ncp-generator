@@ -1,0 +1,90 @@
+{
+  "request_id": "458de1c5-10c1-402f-b45f-cfd384ff81fa",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-11T15:04:33.348713+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 3,
+    "objective_count": 8,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-11T15:05:36.031473+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 585,
+        "output_tokens": 4152,
+        "total_tokens": 4737
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 3,
+        "objective_count": 8
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T15:05:55.584659+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T15:09:46.346642+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2170,
+        "output_tokens": 8105,
+        "total_tokens": 10275
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "ineffective airway clearance",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2755,
+    "output_tokens": 12257,
+    "total_billable": 15012
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "ineffective airway clearance",
+    "diagnosis_reasoning": "1) The infant shows classic signs of retained airway secretions with difficulty clearing them: mother reports internal phlegm, there is a persistent ineffective cough, and both audible crackles and adventitious breath sounds are present. 2) By ABC priority, airway problems take precedence over breathing and circulation; clearing the airway is the immediate need. While tachypnea and retractions suggest an increased work of breathing, there is no evidence of failure to sustain ventilation (impaired spontaneous ventilation) or of impaired gas exchange such as hypoxemia/cyanosis. 3) Specific evidence: ineffective cough, audible crackling without auscultation, auscultated adventitious sounds, and retractions with RR 48–66/min indicate secretion-related airway obstruction. Other candidates (ineffective breathing pattern, impaired gas exchange, hyperthermia) are lower priority or not supported by current data (temp 36°C, no documented hypoxemia).",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-11T15:09:46.389481+00:00",
+  "duration_seconds": 313.04
+}

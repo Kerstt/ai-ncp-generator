@@ -1,0 +1,97 @@
+{
+  "request_id": "f2357808-2f82-4347-971e-0a9fb6b3c070",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T17:56:47.678321+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 3,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T17:56:51.693235+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 543,
+        "output_tokens": 85,
+        "total_tokens": 628
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 3
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:57:03.363136+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 943,
+        "output_tokens": 309,
+        "total_tokens": 1252
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:57:56.508655+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2456,
+        "output_tokens": 3625,
+        "total_tokens": 6081
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "ineffective airway clearance",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3942,
+    "output_tokens": 4019,
+    "total_billable": 7961
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "ineffective airway clearance",
+    "diagnosis_reasoning": "This diagnosis is the most appropriate based on the assessment data showing productive cough and mild substernal retractions, which are classic defining characteristics of ineffective airway clearance. The productive cough indicates the presence of secretions in the airway that the infant is attempting to clear, and the substernal retractions demonstrate increased work of breathing due to airway obstruction. While the RR of 45 cpm in an infant is slightly elevated (normal range 30-40), it is not severely compromised. According to the ABC prioritization framework, this represents an actual airway problem with current evidence of dysfunction (secretions and retractions), making it the highest priority. This takes precedence over 'ineffective breathing pattern' because the primary issue is secretion management rather than the breathing pattern itself. 'Impaired gas exchange' and 'impaired spontaneous ventilation' are not supported as there is no data indicating oxygenation problems or ventilatory failure. The 'risk for' diagnoses (suffocation, aspiration, infection) are lower priority than this actual airway problem per the prioritization rules. The mother's report that the child is 'okay now' and 'just coughing' confirms this is a resolving but still present actual problem requiring intervention for secretion clearance.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T17:57:56.519380+00:00",
+  "duration_seconds": 68.84
+}

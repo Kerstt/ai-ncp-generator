@@ -1,0 +1,90 @@
+{
+  "request_id": "42ede277-14c1-4d97-adbc-591461309716",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T01:56:27.911166+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 5,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T01:57:24.127103+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 506,
+        "output_tokens": 4076,
+        "total_tokens": 4582
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 5
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T01:57:47.448208+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T02:00:14.704084+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2082,
+        "output_tokens": 6038,
+        "total_tokens": 8120
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "deficient fluid volume",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2588,
+    "output_tokens": 10114,
+    "total_billable": 12702
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "deficient fluid volume",
+    "diagnosis_reasoning": "1) Match: The patient has active vomiting and objective moderate dehydration, which directly meet criteria for deficient fluid volume. The low–normal K+ (3.60 mmol/L) is consistent with early electrolyte shifts from fluid/GI losses. 2) Priority: No evidence of airway, breathing, or circulation compromise is provided; thus, per Maslow, physiological hydration needs take precedence. An actual problem (deficient fluid volume) outranks risk diagnoses (e.g., risk for electrolyte imbalance, risk for deficient fluid volume) and non–life-threatening alternatives. While dysfunctional gastrointestinal motility may be present (vomiting, retained contrast), the immediate threat to perfusion and homeostasis from fluid loss is higher priority. 3) Evidence: Ongoing vomiting, examiner-noted moderate dehydration, and borderline potassium support current volume deficit; excess fluid volume and perioperative risk diagnoses are not supported by the data.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T02:00:14.713939+00:00",
+  "duration_seconds": 226.8
+}

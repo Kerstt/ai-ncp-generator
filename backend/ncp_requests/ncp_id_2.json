@@ -1,0 +1,90 @@
+{
+  "request_id": "9d81d9c0-7527-4a9c-8750-3d0c2a68f2d6",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-11T14:12:46.606907+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 5,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-11T14:13:15.738014+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 464,
+        "output_tokens": 1758,
+        "total_tokens": 2222
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 5
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T14:13:27.095959+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T14:14:21.076872+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2068,
+        "output_tokens": 5194,
+        "total_tokens": 7262
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2532,
+    "output_tokens": 6952,
+    "total_billable": 9484
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "1) Matches assessment: The patient reports pain at 7/10 with facial grimacing, restlessness, pallor, and tachycardia (HR 115 bpm), which are classic autonomic and behavioral indicators of acute pain. 2) Priority rationale: No evidence of airway, breathing, or circulation failure; therefore, per Maslow, address physiological needs first. Among physiological options, an actual problem (acute pain) takes precedence over risk diagnoses and is prioritized over broader comfort issues. It also supersedes chronic pain diagnoses given the acute, severe presentation. 3) Supporting evidence: Pain scale 7, facial grimace, restlessness, pallor, and elevated heart rate all support the diagnosis of acute pain rather than chronic or other listed conditions.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-11T14:14:21.085794+00:00",
+  "duration_seconds": 94.48
+}

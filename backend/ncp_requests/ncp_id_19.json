@@ -1,0 +1,90 @@
+{
+  "request_id": "fd461280-a1c5-41b4-8b4d-b3eff55b4a85",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-11T15:15:02.460479+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 2,
+    "objective_count": 7,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-11T15:16:03.923956+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 560,
+        "output_tokens": 3113,
+        "total_tokens": 3673
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 2,
+        "objective_count": 7
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T15:16:22.603440+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T15:18:05.331093+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2075,
+        "output_tokens": 6798,
+        "total_tokens": 8873
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "hyperthermia",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2635,
+    "output_tokens": 9911,
+    "total_billable": 12546
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "hyperthermia",
+    "diagnosis_reasoning": "1) The patient has an elevated temperature (38.3°C), warm skin, reports feeling overly warm, tachycardia (130 bpm), tachypnea (RR 26), and lethargy—findings consistent with an actual state of hyperthermia. 2) By prioritization, this is an acute physiological problem that takes precedence over functional symptoms (fatigue, decreased activity tolerance) and over risk diagnoses (risk for ineffective thermoregulation, risk for hypothermia). It is also more specific than ‘ineffective thermoregulation,’ which indicates difficulty maintaining temperature rather than a current fever. 3) Specific evidence: T 38.3°C, patient refusal of blanket due to heat, warm-to-touch skin, PR 130, RR 26, and decreased energy/activity, all supporting hyperthermia as the primary diagnosis.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-11T15:18:05.337036+00:00",
+  "duration_seconds": 182.88
+}

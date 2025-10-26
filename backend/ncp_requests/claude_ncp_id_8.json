@@ -1,0 +1,97 @@
+{
+  "request_id": "d187471a-af87-4930-b411-1734627818f4",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T16:08:11.856286+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 1,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T16:08:16.364220+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 534,
+        "output_tokens": 88,
+        "total_tokens": 622
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 1
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T16:08:28.484582+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 907,
+        "output_tokens": 303,
+        "total_tokens": 1210
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T16:09:45.522421+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2453,
+        "output_tokens": 4420,
+        "total_tokens": 6873
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3894,
+    "output_tokens": 4811,
+    "total_billable": 8705
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "This diagnosis is selected based on the following clinical evidence and prioritization: 1) Assessment data clearly demonstrates acute pain with subjective report of 7/10 pain intensity in multiple locations (arm, perineal area, lower back) and objective signs including facial grimacing, guarding behavior, and difficulty positioning - all classic indicators of acute pain experience. 2) According to Maslow's Hierarchy, pain is a physiological need that takes priority over psychosocial concerns. Among the candidates, 'acute pain' is an actual physiological problem rather than a risk diagnosis. 3) 'Acute pain' is prioritized over 'labor pain' because the patient is postpartum (evidenced by perineal pain and discontinued IV), making labor pain no longer applicable. 'Acute pain' is selected over 'chronic pain' or 'chronic pain syndrome' because the pain is recent, related to identifiable acute causes (discontinued IV, perineal trauma from delivery, poor bed support), and has not persisted beyond the expected timeframe for chronicity. 'Impaired comfort' is a broader, less specific diagnosis that would be secondary to the acute pain. The tissue and skin integrity diagnoses are not supported as there is no explicit evidence of tissue or skin breakdown in the assessment data.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T16:09:45.528229+00:00",
+  "duration_seconds": 93.67
+}

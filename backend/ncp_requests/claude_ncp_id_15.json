@@ -1,0 +1,97 @@
+{
+  "request_id": "367e0c9b-411f-4e06-a445-5e1403ea0800",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T16:19:35.431459+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 2,
+    "objective_count": 5,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T16:19:40.275558+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 558,
+        "output_tokens": 78,
+        "total_tokens": 636
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 2,
+        "objective_count": 5
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T16:19:52.481735+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 928,
+        "output_tokens": 312,
+        "total_tokens": 1240
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T16:20:51.264403+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2477,
+        "output_tokens": 3736,
+        "total_tokens": 6213
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3963,
+    "output_tokens": 4126,
+    "total_billable": 8089
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "This diagnosis is selected based on the following clinical evidence and prioritization: 1) Assessment data clearly demonstrates acute pain: patient verbalizes severe pain at surgical site ('Sumasakit na masakit 'yung tahi ko'), burning pain with urination ('Mahapdi siya kapag umiihi ako'), pain scale 5/10, and facial grimacing with movement. 2) Using Maslow's hierarchy, pain is a physiological need that takes priority over psychosocial concerns (disturbed body image) and safety risks without current evidence of harm. 3) 'Acute pain' is prioritized over 'impaired comfort' because it is more specific to the patient's primary complaint and represents an actual physiological problem requiring immediate intervention. 4) 'Acute pain' is selected over 'chronic pain' or 'chronic pain syndrome' because the pain is related to recent surgical intervention (sutures mentioned), making it acute rather than chronic in nature. 5) While 'impaired skin/tissue integrity' may be present, the patient's primary expressed concern and most distressing symptom is the pain itself, and per Maslow's hierarchy, pain management is the immediate physiological priority. The pain is not ABC-related but represents the highest priority actual physiological problem in this post-surgical patient.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T16:20:51.276471+00:00",
+  "duration_seconds": 75.85
+}

@@ -1,0 +1,90 @@
+{
+  "request_id": "ae48a2c6-16b8-49a4-a7b5-dcefeb91ade9",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T02:26:09.567911+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 1,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T02:26:33.032856+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 442,
+        "output_tokens": 2070,
+        "total_tokens": 2512
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 1
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T02:26:48.949301+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T02:27:56.277411+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 1978,
+        "output_tokens": 5339,
+        "total_tokens": 7317
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "chronic confusion",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2420,
+    "output_tokens": 7409,
+    "total_billable": 9829
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "chronic confusion",
+    "diagnosis_reasoning": "1) Match: A positive cognitive screen for dementia indicates a progressive, irreversible decline in cognitive function consistent with NANDA-I chronic confusion (commonly associated with dementia), rather than a transient state. 2) Priority: No evidence of airway, breathing, or circulation compromise; therefore, per Maslow, address physiological/cognitive needs. Chronic confusion is an actual problem and takes precedence over risk diagnoses (e.g., risk for acute confusion) and over narrower or less specific psychosocial options (e.g., impaired memory, disturbed thought process). Acute confusion is not supported because there is no acute/sudden onset or fluctuating course. 3) Evidence: The documented positive dementia screen provides specific evidence of ongoing cognitive impairment consistent with chronic confusion.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T02:27:56.277411+00:00",
+  "duration_seconds": 106.71
+}

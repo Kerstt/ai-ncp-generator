@@ -1,0 +1,97 @@
+{
+  "request_id": "bf7ff52c-01b6-457d-8ab2-3cc72a49546f",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T18:02:23.214233+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 1,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T18:02:27.892349+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 481,
+        "output_tokens": 78,
+        "total_tokens": 559
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 1
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T18:02:38.956779+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 862,
+        "output_tokens": 263,
+        "total_tokens": 1125
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T18:03:48.242713+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2334,
+        "output_tokens": 3911,
+        "total_tokens": 6245
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "chronic confusion",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3677,
+    "output_tokens": 4252,
+    "total_billable": 7929
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "chronic confusion",
+    "diagnosis_reasoning": "This diagnosis is selected because: 1) The assessment data shows a positive cognitive screen for dementia, which directly indicates an existing, ongoing cognitive impairment rather than a temporary or acute state. 2) Among the candidates, 'chronic confusion' is an ACTUAL diagnosis that matches the confirmed dementia screening, taking priority over risk diagnoses per the prioritization framework (actual problems over risk problems at the same Maslow level). 3) While 'impaired memory' is also actual, chronic confusion more comprehensively captures the global cognitive dysfunction associated with dementia. 'Acute confusion' is ruled out because dementia represents a chronic, progressive condition rather than an acute change. The risk diagnoses (risk for acute confusion, risk for frail elderly syndrome, risk for caregiver role strain, risk for ineffective home maintenance behaviors) are lower priority than this actual cognitive problem. 'Impaired walking' and 'frail elderly syndrome' lack supporting assessment data. The positive dementia screen provides specific evidence of chronic, irreversible cognitive impairment, making chronic confusion the most accurate and highest-priority diagnosis.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T18:03:48.261087+00:00",
+  "duration_seconds": 85.05
+}

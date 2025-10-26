@@ -1,0 +1,97 @@
+{
+  "request_id": "d3123381-ba3b-442f-b28d-8a31cc9ac76a",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-13T23:59:56.203037+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 1,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-14T00:00:01.087109+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 505,
+        "output_tokens": 43,
+        "total_tokens": 548
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 1
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-14T00:00:13.789321+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 908,
+        "output_tokens": 263,
+        "total_tokens": 1171
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-14T00:01:08.634617+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2377,
+        "output_tokens": 3429,
+        "total_tokens": 5806
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "constipation",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3790,
+    "output_tokens": 3735,
+    "total_billable": 7525
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "constipation",
+    "diagnosis_reasoning": "This diagnosis is selected based on clear assessment evidence: the patient's subjective report of 4 days without a bowel movement since admission ('Apat na araw na akong hindi nakakabawas simula nung na admit ako') and objective finding of abdominal bloating. According to prioritization rules, this is an ACTUAL physiological problem (elimination need per Maslow's hierarchy) rather than a risk diagnosis. 'Constipation' takes priority over 'risk for constipation' because an actual problem exists. 'Chronic functional constipation' is ruled out as there is no evidence this is a chronic condition—the patient specifically states it began upon admission, indicating an acute problem. 'Perceived constipation' is inappropriate because the patient has objective evidence (bloating) and a factual 4-day history, not merely a perception. 'Dysfunctional gastrointestinal motility' is a broader diagnosis that would require additional assessment data beyond constipation symptoms. The acute constipation represents a current physiological elimination problem requiring immediate nursing intervention.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-14T00:01:08.648028+00:00",
+  "duration_seconds": 72.44
+}

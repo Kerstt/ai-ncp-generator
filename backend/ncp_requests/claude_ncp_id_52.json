@@ -1,0 +1,97 @@
+{
+  "request_id": "36343931-80a5-451d-b542-a3d676adfd3b",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T17:39:54.950320+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 3,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T17:39:59.561959+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 539,
+        "output_tokens": 81,
+        "total_tokens": 620
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 3
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:40:10.211755+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 920,
+        "output_tokens": 271,
+        "total_tokens": 1191
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:41:19.866162+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2458,
+        "output_tokens": 4305,
+        "total_tokens": 6763
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3917,
+    "output_tokens": 4657,
+    "total_billable": 8574
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "This diagnosis takes priority based on Maslow's Hierarchy and the actual vs. risk problem framework. The patient explicitly reports pain ('Medyo masakit na din po yung bukol ko sa singit' - the lump in the groin area is now painful), making this an actual physiological problem. While impaired skin integrity and impaired tissue integrity are also actual problems evident from the post-herniorrhaphy surgical wound (disruption of epidermis and destruction of dermis), acute pain takes precedence as it represents an immediate physiological need requiring intervention. According to Maslow's hierarchy, pain is a fundamental physiological need that must be addressed. The patient's subjective report of increasing pain ('na din po' suggests worsening) combined with the recent surgical intervention (left herniorrhaphy) provides clear evidence of acute pain. Risk diagnoses (risk for impaired skin integrity, risk for peripheral neurovascular dysfunction, risk for surgical site infection) are lower priority than this actual problem. The skin/tissue integrity issues, while present, are expected post-surgical findings and secondary to the more immediate concern of the patient's reported pain experience.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T17:41:19.877081+00:00",
+  "duration_seconds": 84.93
+}

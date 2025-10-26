@@ -1,0 +1,90 @@
+{
+  "request_id": "5046acdb-569b-4ee5-894b-7375d288fd7d",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T01:14:44.445735+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 7,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T01:15:27.670528+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 505,
+        "output_tokens": 2775,
+        "total_tokens": 3280
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 7
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T01:15:52.840371+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T01:18:36.740608+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2035,
+        "output_tokens": 6748,
+        "total_tokens": 8783
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "impaired gas exchange",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2540,
+    "output_tokens": 9523,
+    "total_billable": 12063
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "impaired gas exchange",
+    "diagnosis_reasoning": "1) The patient shows objective evidence of oxygenation impairment: SpO2 92% on room air, RR 50/min, and tachycardia (PR 145) consistent with compensatory response in an asthma exacerbation. These findings indicate altered alveolar-capillary oxygen exchange. 2) By ABC priority, compromised oxygenation (gas exchange) takes precedence over ventilatory pattern issues or other non-ABC concerns. Among respiratory options, impaired gas exchange is higher priority than ineffective breathing pattern because it reflects actual hypoxemia, and there is no evidence of ventilatory failure requiring support (thus not impaired spontaneous ventilation). 3) Supporting data: rapid breathing, RR 50; SpO2 92% (RA) indicating hypoxemia; tachycardia 145 bpm; history consistent with asthma as reported by the mother. Ineffective airway clearance is less supported as there is no documentation of secretions or ineffective cough.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T01:18:36.749605+00:00",
+  "duration_seconds": 232.3
+}

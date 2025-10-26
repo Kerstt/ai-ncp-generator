@@ -1,0 +1,97 @@
+{
+  "request_id": "256e2ce6-92f5-44d8-9f60-15bb0ed895dd",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-17T03:59:35.214675+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 2,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-17T03:59:42.154757+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 532,
+        "output_tokens": 63,
+        "total_tokens": 595
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 2
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-17T03:59:55.333798+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 946,
+        "output_tokens": 295,
+        "total_tokens": 1241
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-17T04:01:16.410758+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2421,
+        "output_tokens": 4998,
+        "total_tokens": 7419
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "deficient fluid volume",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3899,
+    "output_tokens": 5356,
+    "total_billable": 9255
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "deficient fluid volume",
+    "diagnosis_reasoning": "This diagnosis is selected based on the following clinical evidence and prioritization: 1) Assessment data shows the patient has experienced 8 episodes of large watery stools and 5 episodes of vomiting in one day, representing significant fluid loss through both routes. The patient's lethargic appearance is a classic sign of dehydration and fluid volume deficit. 2) According to Maslow's hierarchy, this is a physiological need at the foundational level. While 'diarrhea' is also an actual problem present, 'deficient fluid volume' represents the more critical physiological consequence of the diarrhea and vomiting combined. Fluid volume deficit directly impacts circulation and tissue perfusion, making it higher priority than the symptom (diarrhea) itself. 3) This is an ACTUAL problem (not a risk), as evidenced by the lethargy indicating current fluid deficit, which takes priority over risk diagnoses like 'risk for electrolyte imbalance' or 'risk for deficient fluid volume.' The combination of excessive fluid loss through multiple routes plus clinical signs of dehydration (lethargy) confirms this is an existing, acute physiological problem requiring immediate intervention to prevent progression to circulatory compromise.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-17T04:01:16.428789+00:00",
+  "duration_seconds": 101.21
+}

@@ -1,0 +1,90 @@
+{
+  "request_id": "eec958c9-2fb1-4559-bc86-f4bdd71c7cd0",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T02:21:05.890081+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 3,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T02:21:37.166011+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 488,
+        "output_tokens": 2284,
+        "total_tokens": 2772
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 3
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T02:21:54.863746+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T02:22:59.822773+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2063,
+        "output_tokens": 5697,
+        "total_tokens": 7760
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "ineffective breathing pattern",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2551,
+    "output_tokens": 7981,
+    "total_billable": 10532
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "ineffective breathing pattern",
+    "diagnosis_reasoning": "1) The patient shows signs of altered ventilation pattern: RR 45 cpm (tachypnea for a pediatric patient) and mild substernal retractions (use of accessory muscles), indicating increased work of breathing and ineffective breathing pattern. 2) By ABC priority, this is a current Breathing compromise and therefore outranks safety/psychosocial issues and any risk diagnoses. Among ABC options, 'impaired gas exchange' lacks supporting evidence (no hypoxemia/SpO2/ABG or cyanosis), and 'ineffective airway clearance' is less supported because a productive cough indicates secretions are being expelled rather than retained. Ventilatory weaning and infant suck-swallow are not applicable. 3) Specific evidence: productive cough, RR 45 cpm, and mild substernal retractions collectively indicate an actual alteration in breathing mechanics and pattern.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T02:22:59.827177+00:00",
+  "duration_seconds": 113.94
+}

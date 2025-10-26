@@ -1,0 +1,97 @@
+{
+  "request_id": "562a479f-25a4-4fc6-8981-36e12ee7bddf",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T16:45:09.107839+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 2,
+    "objective_count": 7,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T16:45:12.839733+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 621,
+        "output_tokens": 62,
+        "total_tokens": 683
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 2,
+        "objective_count": 7
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T16:45:24.990766+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 1004,
+        "output_tokens": 344,
+        "total_tokens": 1348
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T16:46:37.087567+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2454,
+        "output_tokens": 4489,
+        "total_tokens": 6943
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "hyperthermia",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 4079,
+    "output_tokens": 4895,
+    "total_billable": 8974
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "hyperthermia",
+    "diagnosis_reasoning": "This diagnosis is selected based on clear physiological evidence of elevated body temperature and associated symptoms. Assessment data supporting hyperthermia includes: (1) Temperature of 38.3°C, which exceeds normal range (36.5-37.5°C); (2) Skin warm to touch; (3) Patient's subjective report of feeling too warm and refusing blanket coverage; (4) Compensatory physiological responses including tachycardia (PR: 130 bpm) and tachypnea (RR: 26 bpm); (5) Associated symptoms of lethargy, anorexia, and malaise. This diagnosis takes priority over other candidates because: (1) It is an ACTUAL physiological problem (not a risk diagnosis) affecting basic thermoregulation, which is a fundamental physiological need per Maslow's hierarchy; (2) The elevated temperature with tachycardia and tachypnea indicates potential circulatory stress, placing this higher in priority; (3) 'Ineffective thermoregulation' is less specific as it could indicate inability to maintain temperature in either direction, whereas the data clearly shows hyperthermia; (4) 'Fatigue' and 'impaired comfort' are present but are likely secondary manifestations of the primary thermoregulatory problem; (5) Addressing hyperthermia directly targets the underlying physiological dysfunction that is causing the patient's other symptoms.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T16:46:37.089767+00:00",
+  "duration_seconds": 87.98
+}

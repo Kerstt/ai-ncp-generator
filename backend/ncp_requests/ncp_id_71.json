@@ -1,0 +1,90 @@
+{
+  "request_id": "c565ec92-89c0-4648-9c2c-f6225b778e42",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T02:32:34.602456+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 6,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T02:33:25.392237+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 519,
+        "output_tokens": 4117,
+        "total_tokens": 4636
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 6
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T02:33:40.945940+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T02:36:06.904629+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2091,
+        "output_tokens": 6951,
+        "total_tokens": 9042
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "adult pressure injury",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2610,
+    "output_tokens": 11068,
+    "total_billable": 13678
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "adult pressure injury",
+    "diagnosis_reasoning": "1) The patient has a documented Stage 2 pressure ulcer on the buttocks with erythema, warmth, tenderness, and serous drainage—this is an actual pressure injury in an adult. 2) By priority: no current ABC compromise is evidenced (intubation alone without dysfunction does not qualify). At the physiological level, an actual problem overrides any risk diagnoses. Among actual options, the specific diagnosis 'adult pressure injury' is prioritized over the broader 'impaired skin integrity' or 'impaired tissue integrity' because it precisely matches the etiology and clinical presentation. 3) Supporting data: adult, immobile and fully dependent; Stage 2 pressure ulcer present; local inflammatory signs; small pale yellow serous exudate; afebrile—indicates active pressure injury without systemic infection.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T02:36:06.923709+00:00",
+  "duration_seconds": 212.32
+}

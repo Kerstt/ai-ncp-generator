@@ -1,0 +1,97 @@
+{
+  "request_id": "267b17df-61fd-4216-b4bf-a4f54904262d",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T17:17:10.199140+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 7,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T17:17:15.150207+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 545,
+        "output_tokens": 106,
+        "total_tokens": 651
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 7
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:17:25.897023+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 944,
+        "output_tokens": 251,
+        "total_tokens": 1195
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:18:27.033706+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2458,
+        "output_tokens": 3881,
+        "total_tokens": 6339
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "ineffective airway clearance",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3947,
+    "output_tokens": 4238,
+    "total_billable": 8185
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "ineffective airway clearance",
+    "diagnosis_reasoning": "This diagnosis is the highest priority based on the ABC framework and assessment data. The patient demonstrates clear evidence of airway compromise with: 1) productive cough for multiple days with yellowish phlegm indicating retained secretions, 2) mucoid nasal discharge, and 3) documented difficulty effectively expectorating secretions. These findings directly indicate the patient's inability to clear secretions from the respiratory tract, which is an actual ABC-level problem affecting airway patency. While 'ineffective breathing pattern' and 'impaired gas exchange' were considered, the assessment data specifically points to a clearance problem rather than a ventilation or diffusion issue - the RR (21 bpm) is only slightly elevated and O₂ sat (95.1%) is acceptable, suggesting the primary problem is mechanical obstruction from retained secretions rather than gas exchange dysfunction. Per prioritization rules, this actual ABC-related diagnosis takes precedence over all other candidates, including the safety-level 'risk for infection' and other non-ABC diagnoses.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T17:18:27.051129+00:00",
+  "duration_seconds": 76.85
+}

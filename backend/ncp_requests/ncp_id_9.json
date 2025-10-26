@@ -1,0 +1,90 @@
+{
+  "request_id": "aed2a148-d0ef-42d5-a504-52acbf31805f",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-11T14:48:38.424202+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 3,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-11T14:49:13.236519+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 467,
+        "output_tokens": 3248,
+        "total_tokens": 3715
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 3
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T14:49:25.366655+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T14:50:32.829581+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2015,
+        "output_tokens": 7084,
+        "total_tokens": 9099
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "impaired skin integrity",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2482,
+    "output_tokens": 10332,
+    "total_billable": 12814
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "impaired skin integrity",
+    "diagnosis_reasoning": "1) The patient has a scratch on the right palm with visible dirt, indicating a break in the epidermis—consistent with impaired skin integrity. 2) By prioritization: No ABC compromise is present (vital signs stable, no airway/breathing/circulation issues). Among Maslow’s needs, this is a physiological, actual problem and thus takes priority over psychosocial options like anxiety or fear and over risk diagnoses. 3) Specific evidence includes the observed contaminated scratch (actual disruption of the skin barrier). “Impaired tissue integrity” is less fitting for a superficial scratch, and “ineffective protection” is not supported by evidence of compromised immune defenses. Therefore, impaired skin integrity is the most appropriate and highest-priority diagnosis.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-11T14:50:32.838104+00:00",
+  "duration_seconds": 114.41
+}

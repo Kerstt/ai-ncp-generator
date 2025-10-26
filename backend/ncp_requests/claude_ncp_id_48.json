@@ -1,0 +1,97 @@
+{
+  "request_id": "52d8f780-8131-4861-8eac-d0ae10b1cf98",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T17:33:50.199659+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 5,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T17:33:56.243314+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 564,
+        "output_tokens": 124,
+        "total_tokens": 688
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 5
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:34:06.358481+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 973,
+        "output_tokens": 261,
+        "total_tokens": 1234
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:35:30.454091+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2453,
+        "output_tokens": 5101,
+        "total_tokens": 7554
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "deficient fluid volume",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3990,
+    "output_tokens": 5486,
+    "total_billable": 9476
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "deficient fluid volume",
+    "diagnosis_reasoning": "This is the highest priority diagnosis based on the assessment data and prioritization framework. The patient presents with ACTUAL physiological compromise evidenced by: 1) Active vomiting ('Ta gumita io'), 2) Objective finding of moderate dehydration, and 3) Borderline low potassium (3.60 mmol/L) suggesting fluid and electrolyte losses. According to Maslow's hierarchy, this physiological need (hydration) takes precedence over safety risks. Applying the 'actual over risk' rule, 'deficient fluid volume' (actual problem) is prioritized over 'risk for electrolyte imbalance' or 'risk for deficient fluid volume.' While 'dysfunctional gastrointestinal motility' is also actual, deficient fluid volume represents a more immediate physiological threat requiring urgent intervention to prevent circulatory compromise. The moderate dehydration with ongoing fluid losses through vomiting constitutes clear evidence of current fluid volume deficit, making this the appropriate diagnosis selection over all risk-based or less acute candidates.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T17:35:30.462605+00:00",
+  "duration_seconds": 100.26
+}

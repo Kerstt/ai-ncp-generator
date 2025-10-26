@@ -1,0 +1,90 @@
+{
+  "request_id": "9498380c-6261-4495-820e-79e2de9e8d64",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-11T14:28:45.278506+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 1,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-11T14:29:32.840846+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 459,
+        "output_tokens": 2218,
+        "total_tokens": 2677
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 1
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T14:29:47.175012+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-11T14:31:49.636149+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2015,
+        "output_tokens": 7042,
+        "total_tokens": 9057
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "constipation",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2474,
+    "output_tokens": 9260,
+    "total_billable": 11734
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "constipation",
+    "diagnosis_reasoning": "1) The patient reports no bowel movement for 4 days and shows abdominal bloating—classic defining characteristics of constipation. 2) There is no evidence of airway, breathing, or circulation compromise, so per prioritization we address physiological needs next; an actual elimination problem (constipation) takes precedence over any risk diagnoses and over psychosocial issues. 3) Evidence: subjective—“Apat na araw na akong hindi nakakabawas”; objective—abdominal bloating. Chronic functional constipation is not supported (no chronic history), and perceived constipation is inappropriate because there is objective evidence of true constipation.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-11T14:31:49.642801+00:00",
+  "duration_seconds": 184.36
+}

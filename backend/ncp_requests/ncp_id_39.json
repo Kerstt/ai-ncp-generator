@@ -1,0 +1,90 @@
+{
+  "request_id": "b9ea7623-6d82-478b-b4bc-513236d67b10",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T01:28:13.190255+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 7,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T01:29:20.035566+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 496,
+        "output_tokens": 2916,
+        "total_tokens": 3412
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 7
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T01:29:40.484924+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T01:32:23.837062+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2081,
+        "output_tokens": 6961,
+        "total_tokens": 9042
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "ineffective airway clearance",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2577,
+    "output_tokens": 9877,
+    "total_billable": 12454
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "ineffective airway clearance",
+    "diagnosis_reasoning": "1) The patient has an actual inability to clear secretions, evidenced by days of productive cough, yellow/yellowish phlegm, mucoid nasal discharge, and reported difficulty effectively expectorating—hallmark defining characteristics of ineffective airway clearance. O2 saturation is adequate (95.1%) and RR is only mildly elevated (21), supporting secretion clearance issues rather than ventilatory failure or gas-exchange impairment. 2) Using the prioritization framework: Among ABC-related options, impaired gas exchange and ineffective breathing pattern are not supported (no hypoxemia, no significant ventilatory pattern alteration). Ineffective airway clearance represents an actual airway problem and thus takes priority over psychosocial/safety or irrelevant diagnoses. 3) Specific evidence: productive cough for days, yellowish phlegm, mucoid nasal discharge, and difficulty expectorating all indicate retained secretions and ineffective clearance; absence of significant desaturation or ventilatory distress argues against impaired gas exchange or impaired spontaneous ventilation.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T01:32:23.847169+00:00",
+  "duration_seconds": 250.66
+}

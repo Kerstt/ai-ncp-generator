@@ -1,0 +1,90 @@
+{
+  "request_id": "63adb10a-7c07-4486-b6d9-3dc31a3c6792",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T01:08:09.394195+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 3,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T01:08:34.632053+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 468,
+        "output_tokens": 1886,
+        "total_tokens": 2354
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 3
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T01:09:03.464190+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T01:11:15.074631+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 2048,
+        "output_tokens": 5464,
+        "total_tokens": 7512
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "risk for impaired parenting",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2516,
+    "output_tokens": 7350,
+    "total_billable": 9866
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "risk for impaired parenting",
+    "diagnosis_reasoning": "1) Match: The patient is a 17-year-old, first-time, single parent (G1 P1), all of which are established risk factors for impaired parenting due to limited experience, potential knowledge gaps, and possible reduced social support. 2) Priority: No ABC or physiological compromise is present. At the safety/role-function level, protecting the infant’s well-being through adequate parenting takes precedence over psychosocial diagnoses (e.g., emancipated decision-making) and over readiness diagnoses. Actual vs. risk: There is no evidence of current impaired parenting, so a risk diagnosis is most appropriate. 3) Evidence: Teen pregnancy (age 17), primiparity (first-time parent), and single-parent status indicate vulnerability to challenges in providing consistent, developmentally appropriate, and safe care for the infant, justifying selection of risk for impaired parenting over options related to the maternal-fetal dyad (not applicable postpartum), childbearing process (no data of dysfunction), or readiness/impaired parenting (no positive indicators or actual impairment documented).",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T01:11:15.074631+00:00",
+  "duration_seconds": 185.68
+}

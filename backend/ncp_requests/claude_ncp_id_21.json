@@ -1,0 +1,97 @@
+{
+  "request_id": "9bf9bc72-e721-4533-85d1-bb41990b5241",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T16:58:53.201030+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 3,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T16:58:57.360745+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 509,
+        "output_tokens": 62,
+        "total_tokens": 571
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 3
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T16:59:10.802916+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 903,
+        "output_tokens": 331,
+        "total_tokens": 1234
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:00:40.627394+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2410,
+        "output_tokens": 4933,
+        "total_tokens": 7343
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "risk for impaired parenting",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3822,
+    "output_tokens": 5326,
+    "total_billable": 9148
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "risk for impaired parenting",
+    "diagnosis_reasoning": "This diagnosis is selected based on the following clinical rationale: 1) Assessment data shows multiple risk factors for parenting difficulties: adolescent age (17 years old), first-time parent (G1P1), single parent status, and teenage pregnancy - all of which are established risk factors for parenting challenges. 2) Using the prioritization framework: No ABC or immediate physiological problems are evident in the data. This is a safety-level concern per Maslow's hierarchy, as inadequate parenting can lead to harm to the infant. Among the candidates, 'risk for impaired parenting' takes priority over 'readiness for enhanced parenting' (which requires evidence of current effective parenting and desire for enhancement - not present here). It is more appropriate than 'impaired parenting' (actual diagnosis) because there is no objective evidence of current parenting dysfunction - only risk factors. 'Parental role conflict' requires evidence of competing role demands causing distress, which is not documented. 'Risk for ineffective childbearing process' and 'ineffective childbearing process' focus on pregnancy/birth process rather than post-delivery parenting capacity. 3) The combination of developmental immaturity (adolescence), lack of parenting experience (first-time parent), and lack of partner support (single parent) creates significant vulnerability for parenting difficulties, making this risk diagnosis the most clinically appropriate choice.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T17:00:40.648907+00:00",
+  "duration_seconds": 107.45
+}

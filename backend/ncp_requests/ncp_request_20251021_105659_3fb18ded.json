@@ -1,0 +1,79 @@
+{
+  "request_id": "3fb18ded-4617-43cf-b153-15159fee6b77",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-21T02:56:35.435252+00:00",
+  "status": "failed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 4,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-21T02:56:41.070936+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 531,
+        "output_tokens": 81,
+        "total_tokens": 612
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 4
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-21T02:56:58.950620+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 920,
+        "output_tokens": 318,
+        "total_tokens": 1238
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 1451,
+    "output_tokens": 399,
+    "total_billable": 1850
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis"
+  ],
+  "errors": [
+    {
+      "timestamp": "2025-10-21T02:56:59.086329+00:00",
+      "step": "generate_ncp",
+      "error_message": "NCP generation failed: 499: {'message': 'Request was cancelled', 'error_type': 'cancelled', 'suggestion': 'The request was cancelled by the client.'}",
+      "error_details": {}
+    },
+    {
+      "timestamp": "2025-10-21T02:56:59.086329+00:00",
+      "step": "suggest_diagnoses",
+      "error_message": "NCP generation failed after all retries: 499: {'message': 'Request was cancelled', 'error_type': 'cancelled', 'suggestion': 'The request was cancelled by the client.'}",
+      "error_details": {}
+    }
+  ],
+  "result_summary": {
+    "status": "no_result"
+  },
+  "end_time": "2025-10-21T02:56:59.087326+00:00",
+  "duration_seconds": 23.65
+}

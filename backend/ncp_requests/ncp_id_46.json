@@ -1,0 +1,90 @@
+{
+  "request_id": "14d358dc-f152-43de-8690-80aaf3c7464b",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T01:50:58.556922+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 2,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T01:51:41.300737+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "usage": {
+        "input_tokens": 475,
+        "output_tokens": 1972,
+        "total_tokens": 2447
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 2
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T01:52:08.391247+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "usage": {},
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T01:53:29.775764+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "usage": {
+        "input_tokens": 1939,
+        "output_tokens": 6135,
+        "total_tokens": 8074
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "risk for physical trauma",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 2414,
+    "output_tokens": 8107,
+    "total_billable": 10521
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "risk for physical trauma",
+    "diagnosis_reasoning": "1) The patient has a fall risk band and side rails are down, indicating environmental and personal factors that increase the chance of injury from a fall; the child occasionally sharing the bed further raises the likelihood of accidental injury. 2) By prioritization, there is no evidence of ABC compromise. Safety needs take precedence over psychosocial needs, so a safety risk outweighs the actual psychosocial diagnosis of fear. Among safety-related options, this diagnosis best captures the imminent risk of injury from falls and environmental hazards for the patient; 'risk for child falls' targets the child rather than the patient, and other options (e.g., impaired bed mobility, suffocation, pressure injury) are not supported by the data. 3) Evidence: fall risk band attached to the client, side rails down, and bed-sharing with a child increasing risk of accidental injury.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T01:53:29.783388+00:00",
+  "duration_seconds": 151.23
+}

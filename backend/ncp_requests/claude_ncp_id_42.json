@@ -1,0 +1,97 @@
+{
+  "request_id": "e68080ff-34ff-4865-9b05-6ea748b13835",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T17:22:55.385138+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 3,
+    "objective_count": 2,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T17:23:00.161377+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 536,
+        "output_tokens": 74,
+        "total_tokens": 610
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 3,
+        "objective_count": 2
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:23:10.496883+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 918,
+        "output_tokens": 256,
+        "total_tokens": 1174
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:24:05.393057+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2455,
+        "output_tokens": 3336,
+        "total_tokens": 5791
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3909,
+    "output_tokens": 3666,
+    "total_billable": 7575
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "This diagnosis is the highest priority based on the assessment data and prioritization framework. The patient presents with clear evidence of an actual physiological problem: sharp, stabbing pain rated 8/10, accompanied by objective signs including facial grimacing, guarding behavior (holding left arm close to body), and limited range of motion. According to Maslow's hierarchy, physiological needs take precedence over safety concerns. While 'risk for peripheral neurovascular dysfunction' and 'impaired tissue integrity' are relevant safety and physiological concerns, they are secondary to the actual, acute pain the patient is currently experiencing. The prioritization rule of 'actual problems over risk problems' at the same Maslow level applies here. Additionally, acute pain takes precedence over chronic pain as this is a traumatic injury with immediate onset. Pain management is essential not only for patient comfort but also to prevent complications such as shock, immobility, and delayed healing. The severity (8/10) and acute nature of this pain from recent trauma (motorcycle vs. bicycle collision) makes it the most urgent nursing diagnosis requiring immediate intervention.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T17:24:05.395781+00:00",
+  "duration_seconds": 70.01
+}

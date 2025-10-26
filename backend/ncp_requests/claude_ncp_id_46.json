@@ -1,0 +1,97 @@
+{
+  "request_id": "cbfc7b04-2ca1-4446-9cc4-32e9f9ad789c",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T17:28:14.133650+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 2,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T17:28:18.132680+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 519,
+        "output_tokens": 52,
+        "total_tokens": 571
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 2
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:28:30.146139+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 903,
+        "output_tokens": 279,
+        "total_tokens": 1182
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T17:29:38.603505+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2297,
+        "output_tokens": 3481,
+        "total_tokens": 5778
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "risk for child falls",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3719,
+    "output_tokens": 3812,
+    "total_billable": 7531
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "risk for child falls",
+    "diagnosis_reasoning": "This diagnosis is selected based on the following clinical priorities: 1) Assessment data clearly indicates a child safety risk - the patient states 'my child sometimes lies in bed with me' while a fall risk band is present and side rails are down, creating an immediate environmental hazard for the child. 2) Using Maslow's hierarchy, this is a SAFETY issue (fall prevention/injury prevention), which takes priority over the psychosocial diagnosis of 'fear' (actual problem but lower Maslow level). 3) While 'risk for injury' is also a safety diagnosis, 'risk for child falls' is more specific and accurate to the assessment data, which explicitly identifies a child in a high-risk environment (bed with side rails down, adult patient with fall risk). 4) The presence of the fall risk band and down side rails provides concrete environmental evidence supporting fall risk. 5) Other child-related diagnoses (pressure injury, disorganized infant behavior, attachment, SIDS) lack supporting assessment data. The specificity of 'risk for child falls' makes it the most appropriate diagnosis for this clinical scenario where a vulnerable child is exposed to a documented fall hazard.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T17:29:38.613286+00:00",
+  "duration_seconds": 84.48
+}

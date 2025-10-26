@@ -1,0 +1,105 @@
+{
+  "request_id": "3f226c3c-ec9d-4995-a37a-7dcd6d1fb413",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-23T01:07:42.475752+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "comprehensive_manual",
+    "filled_fields_count": 25,
+    "total_possible_fields": 29,
+    "sections_with_data": [
+      "demographics",
+      "chief_complaint",
+      "history",
+      "medical_history",
+      "vital_signs",
+      "physical_exam",
+      "lab_results",
+      "subjective_data",
+      "objective_data"
+    ],
+    "sections_count": 9
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-23T01:07:48.698247+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing (Comprehensive)",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 805,
+        "output_tokens": 65,
+        "total_tokens": 870
+      },
+      "context": {
+        "has_comprehensive_data": true,
+        "data_fields_count": 25
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-23T01:08:05.880445+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 1167,
+        "output_tokens": 302,
+        "total_tokens": 1469
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-23T01:09:25.866159+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2572,
+        "output_tokens": 4919,
+        "total_tokens": 7491
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "risk for ineffective cerebral tissue perfusion",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 4544,
+    "output_tokens": 5286,
+    "total_billable": 9830
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "risk for ineffective cerebral tissue perfusion",
+    "diagnosis_reasoning": "This diagnosis is selected based on the following clinical evidence and prioritization: 1) Assessment data shows a 22-year-old male with a 3-day history of headache ('sumasakit ulo ko') and associated shortness of breath, combined with a past medical history of hypertension. While current vital signs are stable (BP 120/80), the combination of persistent headache, respiratory symptoms, and underlying hypertension creates significant risk for cerebral perfusion compromise. 2) Using the prioritization framework, this diagnosis addresses a potential ABC-level concern (cerebral circulation/perfusion to vital organ), which takes precedence over other physiological needs. Although this is a 'risk for' diagnosis, it relates to vital organ perfusion and potential neurological compromise, making it higher priority than chronic conditions or metabolic risks. 3) The specific evidence includes: persistent headache (cerebral symptom), history of hypertension (major risk factor for cerebral perfusion problems), and associated shortness of breath (potential indicator of cardiovascular compromise affecting tissue oxygenation). The headache lasting 3 days with hypertension history warrants immediate attention to prevent potential cerebrovascular events, making this the most clinically urgent diagnosis from the candidate list.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-23T01:09:25.891372+00:00",
+  "duration_seconds": 103.42
+}

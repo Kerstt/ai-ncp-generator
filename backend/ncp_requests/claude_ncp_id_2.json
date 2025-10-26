@@ -1,0 +1,97 @@
+{
+  "request_id": "4424fc3e-ace0-41ed-93de-8b7351829a91",
+  "request_type": "manual_assessment",
+  "start_time": "2025-10-12T15:52:05.860532+00:00",
+  "status": "completed",
+  "assessment_summary": {
+    "type": "manual",
+    "subjective_count": 1,
+    "objective_count": 5,
+    "has_subjective": true,
+    "has_objective": true
+  },
+  "api_calls": [
+    {
+      "timestamp": "2025-10-12T15:52:10.681177+00:00",
+      "step": "parse_assessment",
+      "operation": "Manual Assessment Parsing",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 505,
+        "output_tokens": 73,
+        "total_tokens": 578
+      },
+      "context": {
+        "has_subjective": true,
+        "has_objective": true,
+        "subjective_count": 1,
+        "objective_count": 5
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T15:52:23.075454+00:00",
+      "step": "select_diagnosis",
+      "operation": "AI Diagnosis Selection",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 877,
+        "output_tokens": 283,
+        "total_tokens": 1160
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "candidates_count": 10,
+        "assessment_type": "unknown"
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-10-12T15:53:20.889179+00:00",
+      "step": "generate_ncp",
+      "operation": "Structured NCP Generation",
+      "ai_provider": "Claude",
+      "usage": {
+        "input_tokens": 2424,
+        "output_tokens": 3795,
+        "total_tokens": 6219
+      },
+      "context": {
+        "attempt": 1,
+        "max_retries": 3,
+        "diagnosis": "acute pain",
+        "assessment_type": "unknown"
+      },
+      "success": true
+    }
+  ],
+  "total_tokens": {
+    "input_tokens": 3806,
+    "output_tokens": 4151,
+    "total_billable": 7957
+  },
+  "steps_completed": [
+    "parse_assessment",
+    "select_diagnosis",
+    "generate_ncp"
+  ],
+  "errors": [],
+  "result_summary": {
+    "has_diagnosis": true,
+    "has_ncp": true,
+    "diagnosis_name": "acute pain",
+    "diagnosis_reasoning": "This diagnosis is selected based on clear physiological evidence of pain: pain scale of 7/10, facial grimacing, pallor, restlessness, and tachycardia (HR 115 bpm). According to Maslow's Hierarchy, pain is a physiological need that takes priority over psychosocial concerns like fear. Among the pain-related candidates, 'acute pain' is prioritized over 'chronic pain' or 'chronic pain syndrome' because the assessment data shows acute manifestations without evidence of chronicity (pain lasting >3 months). 'Acute pain' is also more appropriate than 'impaired comfort' as it is more specific to the presenting symptoms. 'Labor pain' is excluded due to lack of obstetric context. ABC conditions (autonomic dysreflexia, impaired spontaneous ventilation) are not supported by the data—the tachycardia and restlessness are consistent with pain response rather than airway/breathing compromise. The pain scale of 7/10 with multiple objective indicators (grimacing, pallor, elevated HR) represents an actual physiological problem requiring immediate intervention, making 'acute pain' the highest priority diagnosis.",
+    "ncp_sections": [
+      "assessment",
+      "diagnosis",
+      "outcomes",
+      "interventions",
+      "rationale",
+      "implementation",
+      "evaluation"
+    ]
+  },
+  "end_time": "2025-10-12T15:53:20.896006+00:00",
+  "duration_seconds": 75.04
+}
